@@ -663,7 +663,7 @@ def main(server, eventHandler, params, tf = TerminalFilter):
                     # Prefix task messages with recipe/task
                     if event.taskpid in helper.pidmap and event.levelno != bb.msg.BBLogFormatter.PLAIN:
                         taskinfo = helper.running_tasks[helper.pidmap[event.taskpid]]
-                        event.msg = taskinfo['title'] + ': ' + event.msg
+                        event.msg = taskinfo['title'] + ': ' + str(event.msg)
                 if hasattr(event, 'fn'):
                     event.msg = event.fn + ': ' + event.msg
                 logging.getLogger(event.name).handle(event)
